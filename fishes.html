@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fish Zone</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="aframe.min.js"></script>
+    <script src="aframe-template-component.min.js"></script>
+    <style>
+      #story {
+        pointer-events: none;
+        position: absolute;
+        top: 5vw;
+        left: 5vw;
+        width: 80vw;
+        font-size: 10vh;
+        color: white;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-style: italic;
+        font-family: "HelveticaNeue", "Helvetica", sans-serif;
+        transform: scale(0.6, 1);
+        transform-origin: top left;
+        z-index: 10;
+      }
+    </style>
+  </head>
+  <body>
+    <div id='story'></div>
+    <script>
+      AFRAME.registerComponent('clickable-fish', {
+        init: function () {
+          this.el.addEventListener('click', function (evt) {
+            // var randomIndex = Math.floor(Math.random() * COLORS.length);
+            // this.setAttribute('material', 'color', COLORS[randomIndex]);
+            // console.log('I was clicked at: ', evt.detail.intersection.point);
+            // alert('clicked!')
+            let text = evt.target.parentElement.querySelector('a-text').getAttribute('value');
+            document.getElementById('story').innerText += ' ' + text;
+          });
+        }
+      });
+    </script>
+    <a-scene fog="type: linear; color: #0C6088; near: 10; far: 50">
+      
+      <a-assets>
+        <a-asset-item id="fish-obj" src="fish.obj"></a-asset-item>
+        <a-asset-item id="fish-mtl" src="fish.mtl"></a-asset-item>
+        <img id="water" src="water3.jpg" />
+        <img id="sky" src="sky.png" />
+        <script type="html" id="fishTemplate">
+          <a-entity rotation="${rotation}">
+            <a-entity position="0 0 0">
+              <a-entity class="fish" rotation="0 -90 0" position="0 0 -10" obj-model="obj: #fish-obj; mtl: #fish-mtl" clickable-fish></a-entity>
+              <a-entity text="font: Roboto-msdf.json; value: hello world." position="0 0 -5"></a-entity>
+              <a-text value="${text}" scale="2.5 2.5 2.5" position="-1.8 0.15 -12.3"></a-text>
+              <a-animation attribute="rotation"
+                           dur="20000"
+                           fill="forwards"
+                           from="0 0 0"
+                           to="0 360 0"
+                           easing="linear"
+                           repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-entity>
+        </script>
+      </a-assets>
+    
+    
+      <a-camera>
+        <a-entity cursor="fuse: false; fuseTimeout: 500"
+                position="0 0 -2"
+                scale="0.04 0.04 0.04"
+                geometry="primitive: ring"
+                material="color: black; shader: flat"/>
+          <!-- <a-cursor></a-cursor> -->
+      </a-camera>
+      
+      <a-entity template="src: #fishTemplate" data-text="literally" data-rotation="0 67 0" data-speed="20000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="nothing" data-rotation="0 45 0" data-speed="30000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="mission" data-rotation="0 -67 0" data-speed="25000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="is" data-rotation="0 22 5" data-speed="15000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="where" data-rotation="0 0 12" data-speed="21000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="why" data-rotation="0 300 40" data-speed="24000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="would" data-rotation="0 24 0" data-speed="18000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="you" data-rotation="0 -69 20" data-speed="29000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="them" data-rotation="0 180 0" data-speed="26000"></a-entity>
+      <a-entity template="src: #fishTemplate" data-text="stop" data-rotation="0 250 -13" data-speed="23000"></a-entity>
+      
+      
+      <a-plane material="src: #water; repeat: 20 20" position="0 20 0" rotation="90 0 0" width="600" height="600"></a-plane>
+      <a-sky material="src: #sky; fog: false"></a-sky>
+    </a-scene>
+  </body>
+</html>

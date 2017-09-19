@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: linear; color: #410; near: 10; far: 30">
+      <a-assets>
+        <a-asset-item id="fish-obj" src="fish.obj"></a-asset-item>
+        <a-asset-item id="fish-mtl" src="fish.mtl"></a-asset-item>
+      </a-assets>
+      <a-obj-model scale="100 20 100" material="metalness: 0; roughness: 1; src:#lava; repeat: 50 50" src="mountains.obj"></a-obj-model>
+<!--       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
+      
+      <a-entity position="0 0 -3">
+        <a-cylinder position="0 0.75 0" radius="0.05" height="1.5" color="#444"></a-cylinder>
+        <a-sphere light="type: point; color: #FFE; intensity: 1" position="0 1.5 0" radius="0.2" material="shader: flat; color: #feb"></a-sphere>
+      </a-entity>
+      <a-image color="#d66" scale="4 2 2" position="0 5 -4" rotation="40 3 -5" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2F7.png?1505836382812"></a-image>
+      
+      <a-entity position="7 0 -15">
+        <a-cylinder position="0 0.75 0" radius="0.05" height="1.5" color="#444"></a-cylinder>
+        <a-sphere light="type: point; color: #FFE; intensity: 1" position="0 1.5 0" radius="0.2" material="shader: flat; color: #feb"></a-sphere>
+      </a-entity>
+      <a-image color="#d66" scale="5 1.5 1.5" position="8 6 -18" rotation="20 -30 -5" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2FScreen%20Shot%202017-09-19%20at%2011.49.41%20AM.png?1505836579778"></a-image>
+      
+      <a-entity position="3 0 -23">
+        <a-cylinder position="0 0.75 0" radius="0.05" height="1.5" color="#444"></a-cylinder>
+        <a-sphere light="type: point; color: #FFE; intensity: 1" position="0 1.5 0" radius="0.2" material="shader: flat; color: #feb"></a-sphere>
+      </a-entity>
+      <a-image color="#d66" scale="3 1.5 1.5" position="3 4 -25" rotation="20 10 -5" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2Fpepper.png?1505836901766"></a-image>
+      <a-image color="#d66" scale="4 1 1" position="3 2 -26" rotation="20 10 -3" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2Fpeppertext.png?1505836902032"></a-image>
+      
+      <a-entity position="-10 1 -27">
+        <a-cylinder position="0 0.75 0" radius="0.05" height="1.5" color="#444"></a-cylinder>
+        <a-sphere light="type: point; color: #FFE; intensity: 1" position="0 1.5 0" radius="0.2" material="shader: flat; color: #feb"></a-sphere>
+      </a-entity>
+      <a-image color="#d66" scale="4 2 1" position="-12 5 -29" rotation="20 20 -3" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2Fbburger.png?1505837361636"></a-image>
+      <a-image color="#d66" scale="6 1 1" position="-12 3 -30" rotation="20 23 0" src="https://cdn.glitch.com/4631a168-cb4c-4037-a023-882060104a5a%2Fbburger2.png?1505837356330"></a-image>
+
+      
+      <a-sky material="src:#sky; fog:false"></a-sky>
+    </a-scene>
+  </body>
+</html>

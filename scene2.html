@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
+        <a-asset-item id="fish-obj" src="fish.obj"></a-asset-item>
+        <a-asset-item id="fish-mtl" src="fish.mtl"></a-asset-item>
+        <img src='macncheese.png' id='macncheese' />
+        <img src='redblue.png' id='sky' />
+        
+      </a-assets>
+      <a-obj-model scale="100 20 100" material="metalness: 0; roughness: 1; src:#macncheese; repeat: 50 50" src="mountains.obj"></a-obj-model>
+<!--       <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane> -->
+      
+      <a-sky material="src:#sky; fog:false"></a-sky>
+      
+      <a-text position="-10 30 -25" scale="20 60 30" rotation="60 20 -40" value="Our tweets are \nfor US audiences only"></a-text>
+      <a-entity rotation="0 95 0">
+        <a-text position="-30 20 -15" scale="20 50 30" rotation="70 20 -15" value="Industry guidelines prevent us\n from using condition name \n in social media"></a-text>
+      </a-entity>
+      <a-entity rotation="0 -95 0">
+        <a-text position="-30 20 -30" scale="20 70 30" rotation="40 20 -15" value="Please do not\n include personal information\n in your tweets"></a-text>
+      </a-entity>
+      
+    </a-scene>
+  </body>
+</html>
